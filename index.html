@@ -1,0 +1,51 @@
+<html>
+<head></head>
+<body>
+<iframe width="854" height="480" src="https://www.youtube.com/embed/Z6_UlNz7avw" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+</body>
+</html>
+
+
+
+<h1> # randomInstances.py import maya.cmds as cmds
+
+import random
+
+random.seed ( 1234 )
+
+result = cmds.ls( orderedSelection=True ) # create list in order of selection
+
+print 'result: %s' % ( result ) #same as above
+
+transformName = result[0] # ie. result = ['myCube1', 'polyCube1'], so grab 'myCube1'
+
+instanceGroupName = cmds.group( empty=True, name=transformName + '_instance_grp#' )
+
+for i in range ( 0, 50 ):
+
+    instanceResult = cmds.instance( transformName, name=transformName + '_instance#' )
+    
+    cmds.parent( instanceResult, instanceGroupName )
+    
+    #print 'instanceResult: ' + str( instanceResult)
+    
+    x = random.uniform( -10, 10 )
+    y = random.uniform( 0, 20 )
+    z = random.uniform( -10, 10 )
+    
+    cmds.move (x, y, z, instanceResult ) # move over 10 units
+
+    xRot = random.uniform( 0, 360 )
+    yRot = random.uniform( 0, 360 )
+    zRot = random.uniform( 0, 360 )
+
+    cmds.rotate( xRot, yRot, zRot, instanceResult 
+    
+    scalingFactor = random.uniform( 0.3, 1.5 )
+    
+    cmds.scale( scalingFactor, scalingFactor, scalingFactor, instanceResult )
+
+cmds.hide( transformName ) # hide orig cube
+cmds.xform( instanceGroupName, centerPivots=True ) # Center the group pivot
+
+</h1>
