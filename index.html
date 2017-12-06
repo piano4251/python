@@ -11,44 +11,44 @@
 
 <h1> # randomInstances.py import maya.cmds as cmds </h1>
 
-<h1> import random </h1>
+<p> <h1> import random </h1>
 
- <h1>random.seed ( 1234 ) </h1>
+ <p> <h1>random.seed ( 1234 ) </h1>
 
- <h1> result = cmds.ls( orderedSelection=True ) # create list in order of selection </h1>
+ <p> <h1> result = cmds.ls( orderedSelection=True ) # create list in order of selection </h1>
 
-<h1> print 'result: %s' % ( result ) #same as above </h1>
+<p> <h1> print 'result: %s' % ( result ) #same as above </h1>
 
-<h1> transformName = result[0] # ie. result = ['myCube1', 'polyCube1'], so grab 'myCube1' </h1>
+<p><h1> transformName = result[0] # ie. result = ['myCube1', 'polyCube1'], so grab 'myCube1' </h1>
 
-<h1> instanceGroupName = cmds.group( empty=True, name=transformName + '_instance_grp#' ) </h1>
+<p><h1> instanceGroupName = cmds.group( empty=True, name=transformName + '_instance_grp#' ) </h1>
 
-<h1> for i in range ( 0, 50 ): </h1>
+<p><h1> for i in range ( 0, 50 ): </h1>
 
-<h1>    instanceResult = cmds.instance( transformName, name=transformName + '_instance#' ) </h1>
+<p><h1>    instanceResult = cmds.instance( transformName, name=transformName + '_instance#' ) </h1>
     
-<h1>    cmds.parent( instanceResult, instanceGroupName ) </h1>
+<p><h1>    cmds.parent( instanceResult, instanceGroupName ) </h1>
     
-<h1>    #print 'instanceResult: ' + str( instanceResult) </h1>
+<p><h1>    #print 'instanceResult: ' + str( instanceResult) </h1>
     
-<h1>    x = random.uniform( -10, 10 ) </h1>
-<h1>    y = random.uniform( 0, 20 ) </h1>
-<h1>    z = random.uniform( -10, 10 ) </h1>
+<p><h1>    x = random.uniform( -10, 10 ) </h1>
+<p><h1>    y = random.uniform( 0, 20 ) </h1>
+<p><h1>    z = random.uniform( -10, 10 ) </h1>
      
-<h1>    cmds.move (x, y, z, instanceResult ) # move over 10 units </h1>
+<p><h1>    cmds.move (x, y, z, instanceResult ) # move over 10 units </h1>
 
-<h1>    xRot = random.uniform( 0, 360 ) </h1>
-<h1>    yRot = random.uniform( 0, 360 ) </h1>
-<h1>    zRot = random.uniform( 0, 360 ) </h1>
+<p><h1>    xRot = random.uniform( 0, 360 ) </h1>
+<p><h1>    yRot = random.uniform( 0, 360 ) </h1>
+<p><h1>    zRot = random.uniform( 0, 360 ) </h1>
 
-<h1>    cmds.rotate( xRot, yRot, zRot, instanceResult  </h1>
+<p><h1>    cmds.rotate( xRot, yRot, zRot, instanceResult  </h1>
     
-<h1>    scalingFactor = random.uniform( 0.3, 1.5 ) </h1>
+<p><h1>    scalingFactor = random.uniform( 0.3, 1.5 ) </h1>
     
-<h1>    cmds.scale( scalingFactor, scalingFactor, scalingFactor, instanceResult ) </h1>
+<p><h1>    cmds.scale( scalingFactor, scalingFactor, scalingFactor, instanceResult ) </h1>
 
-<h1> cmds.hide( transformName ) # hide orig cube </h1>
-<h1> cmds.xform( instanceGroupName, centerPivots=True ) # Center the group pivot </h1>
+<p><h1> cmds.hide( transformName ) # hide orig cube </h1>
+<p><h1> cmds.xform( instanceGroupName, centerPivots=True ) # Center the group pivot </h1>
 
 
 
